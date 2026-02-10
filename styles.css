@@ -1,0 +1,36 @@
+body{
+    background-color: greenyellow;
+}
+
+.container{
+    text-align: center;
+}
+
+#header{
+    color: white;
+    display: inline-flex;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 6px;
+    gap: 200px;
+    text-align: left;
+}
+#scoreboard{
+    color: white;
+    gap: 10px;
+    display: flex;
+}
+#computer-score, #your-score{
+    width: 200px;
+    height: auto;
+    color: grey;
+    background-color: white;
+    border: 2px solid white;
+    padding: 8px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+#computer-score h1, #your-score h1{
+    font-size: 60px;
+}
