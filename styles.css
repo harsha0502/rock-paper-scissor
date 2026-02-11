@@ -14,7 +14,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 700px;
-    padding: 5px 15px;
+    padding: 0px 15px;
     border: 3px solid rgba(255, 255, 255, 0.8);
     border-radius: 15px;
 }
@@ -22,9 +22,9 @@ body {
 .title {
     color: white;
     font-size: 22px;
-    line-height: 0.9;
+    line-height: 1.1;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     font-weight: 700;
 }
 
@@ -53,9 +53,41 @@ body {
     margin-bottom: 18px;
 }
 
-.score-value {
+.score-value-player, .score-value-computer {
     color: #252525;
     font-size: 70px;
     font-weight: 700;
     line-height: 1;
+}
+.rock-paper-scissors {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.rock img {
+    padding: 25px;
+    background-color: white;
+    border-radius: 100px;
+    height: 85px;
+    width: 85px;
+    border: 20px solid #0074b6;
+}
+
+.paper img {
+    padding: 25px;
+    background-color: white;
+    border-radius: 100px;
+    height: 80px;
+    width: 80px;
+    border: 20px solid #ffa943;
+}
+
+.scissors img {
+    padding: 25px;
+    background-color: white;
+    border-radius: 100px;
+    height: 80px;
+    width: 80px;
+    border: 20px solid #bd00ff;
 }
