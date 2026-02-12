@@ -129,41 +129,29 @@ body {
     border: 20px solid #bd00ff;
 }
 
-.rock-paper-scissors::before,
-.rock-paper-scissors::after {
-    content: '';
+.triangle-line{
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 6px;
-    z-index: 0;
-}
-
-.rock-paper-scissors::before {
-    width: 290px;
+    width: 250px;
     height: 15px;
-    top: 400px;
-    left: 600px;
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: -1;
 }
-
-.rock-paper-scissors::after {
-    width: 230px;
-    height: 15px;
-    top: 450px;
-    left: 650px;
+.rock .triangle-line{
     transform: rotate(60deg);
-    transform-origin: left center;
-    z-index: -1;
+    transform-origin: center left;
+    top: 50%;
+    left: 40%;
 }
 
-.rock-paper-scissors .triangle-line {
-    position: absolute;
-    width: 230px;
-    height: 15px;
-    background-color: rgba(0, 0, 0, 0.6);
-    top: 450px;
-    right: 650px;
+.paper .triangle-line{
     transform: rotate(-60deg);
-    transform-origin: right center;
-    z-index: -1;
+    transform-origin: center right;
+    top: 50%;
+    right: 40%;
+}
+
+.scissors .triangle-line{
+    transform-origin: center right;
+    top: 50%;
+    right: 40%;
 }
