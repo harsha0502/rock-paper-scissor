@@ -6,29 +6,46 @@ const choiceDisplay = document.querySelector('.rock-paper-scissors');
 const userScoreDisplay = document.querySelector('.score-value-player');
 const computerScoreDisplay = document.querySelector('.score-value-computer');
 
-const options = ["rock", "scissors", "paper" ];
+const options = [
+   document.getElementById('0'),
+   document.getElementById('1'),
+   document.getElementById('2'),
+];
+
+const optionsText = ["rock", "scissors", "paper"];
+const getScoresLocally = ()=>{
+    const scores = localStorage.getItem("SCORES");
+    if(scores){
+        const parsedScores = JSON.parse(scores);
+        userScore = parsedScores.user;
+        computerScore = parsedScores.computer;
+        userScoreDisplay.textContent = userScore;
+        computerScoreDisplay.textContent = computerScore;
+    }
+}
+getScoresLocally();
 const playGame = (userChoiceId)=>{
+    const userChoice = optionsText[userChoiceId];
     const computerChoiceId = Math.floor(Math.random()*3);
-    const userChoice = options[userChoiceId];
-    const computerChoice = options[computerChoiceId];
-    calculateWinner(userChoice, computerChoice);
+    const computerChoice = optionsText[computerChoiceId];
+    const result = calculateWinner(userChoice, computerChoice);
+    showResults(result)
 }
 
 choices.forEach((choice)=>{
     console.log(choice);
     choice.addEventListener('click',()=>{
-        // choiceDisplay.style.display = "none";
         const userChoiceId = choice.id;
         playGame(userChoiceId);
     })
 })
 
 const calculateWinner = (userChoice, computerChoice)=>{
+    let result = null;
     if(userChoice === computerChoice){
 
 
-
-        // alert("It's a tie");
+        result = 0;
     }else if(
         (userChoice === "rock" && computerChoice === "scissors") ||
         (userChoice === "scissors" && computerChoice === "paper") ||
@@ -36,10 +53,21 @@ const calculateWinner = (userChoice, computerChoice)=>{
     ){
         userScore++;
         userScoreDisplay.textContent = userScore;
-        // alert("You win!");
+        result = 1;
     }else{
         computerScore++;
         computerScoreDisplay.textContent = computerScore;
-        // alert("You lose!");
+        result = -1;
     }
+    scores = {
+        user: userScore,
+        computer: computerScore
+    }
+    setScoresLocally(scores)
+    return result;
 }
+
+const setScoresLocally = (scores)=>{
+    localStorage.setItem("SCORES", JSON.stringify(scores));
+}
+
