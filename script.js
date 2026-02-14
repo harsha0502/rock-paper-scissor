@@ -8,11 +8,30 @@ const choiceDisplay = document.querySelector('.rock-paper-scissors');
 const userScoreDisplay = document.querySelector('.score-value-player');
 const computerScoreDisplay = document.querySelector('.score-value-computer');
 const resultDisplay = document.querySelector('.result');
+const hoorayDisplay = document.querySelector('.hooray')
+const nextButton = document.querySelector('.next')
+const scoreboard = document.querySelector('.container')
 
+nextButton.style.display = "none";
+hoorayDisplay.style.display = "none";
 resultDisplay.style.display = "none";
+
 const rulesBtn = document.getElementById('rulesBtn');
 const rulesModal = document.getElementById('rulesModal');
 const closeBtn = document.getElementById('closeBtn');
+
+nextButton.addEventListener('click',()=>{
+    nextButton.style.display = "none";
+    scoreboard.style.display = "none";
+    resultDisplay.style.display = "none";
+    hoorayDisplay.style.display = "flex";
+    const playAgainButton = document.querySelector("#play");
+
+    playAgainButton.addEventListener('click', () => {
+        console.log("hii")
+        document.location.reload();
+    })
+})
 
 
 rulesBtn.addEventListener('click', () => {
@@ -59,7 +78,7 @@ const showResults = function (result, userChoiceId, computerChoiceId) {
     optionsComputer[computerChoiceId].style.display = "block";
     const resultText = document.getElementById('result-text-h1');
     const resultTextH3 = document.getElementById('result-text-h3');
-    const playAgainButton = document.getElementById('play-again');
+    const playAgainButton = document.querySelector('#play-again');
 
     playAgainButton.addEventListener('click', () => {
         document.location.reload();
@@ -76,7 +95,6 @@ const showResults = function (result, userChoiceId, computerChoiceId) {
             resultText.textContent = "YOU LOST";
         }
     }
-    console.log(result);
 
 }
 function addAuraEffect(element) {
@@ -138,6 +156,7 @@ const calculateWinner = (userChoice, computerChoice) => {
         (userChoice === "paper" && computerChoice === "rock")
     ) {
         userScore++;
+        nextButton.style.display = "flex";
         userScoreDisplay.textContent = userScore;
         result = 1;
     } else {
